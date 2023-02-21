@@ -2,14 +2,14 @@
 #include <string>
 using namespace std;
 
-void init(char**& a, int const n) { // обычная инициализация массива
+void init(char**& a, int const n) { // РѕР±С‹С‡РЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°СЃСЃРёРІР°
 	a = new char* [n];
 	for (int i = 0; i < n; i++)
 		a[i] = new char[n];
 }
 
 
-void input(char** a, int const n, string str) { // запись букв в матрицу по ключу записи К1 = [1 5 4 3 2]
+void input(char** a, int const n, string str) { // Р·Р°РїРёСЃСЊ Р±СѓРєРІ РІ РјР°С‚СЂРёС†Сѓ РїРѕ РєР»СЋС‡Сѓ Р·Р°РїРёСЃРё Рљ1 = [1 5 4 3 2]
 	for (int i = 0; i < n; i++) {
 		a[i][0] = str[n * i - 1 + 1];
 		a[i][1] = str[n * i - 1 + 5];
@@ -19,7 +19,7 @@ void input(char** a, int const n, string str) { // запись букв в матрицу по ключ
 	}
 }
 
-void input_(char** a, int const n, string str) { // запись букв в матрицу по ключу записи К2 
+void input_(char** a, int const n, string str) { // Р·Р°РїРёСЃСЊ Р±СѓРєРІ РІ РјР°С‚СЂРёС†Сѓ РїРѕ РєР»СЋС‡Сѓ Р·Р°РїРёСЃРё Рљ2  
 	for (int i = 0; i < n; i++) {
 		a[i][0] = str[n * i - 1 + 1];
 		a[i][1] = str[n * i - 1 + 4];
@@ -29,7 +29,7 @@ void input_(char** a, int const n, string str) { // запись букв в матрицу по клю
 	}
 }
 
-void output(char** a, int const n, string& str) { // считывание букв из матрицы в новую строку по ключу записи К2 = [1 4 5 3 2]
+void output(char** a, int const n, string& str) { // СЃС‡РёС‚С‹РІР°РЅРёРµ Р±СѓРєРІ РёР· РјР°С‚СЂРёС†С‹ РІ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ РїРѕ РєР»СЋС‡Сѓ Р·Р°РїРёСЃРё Рљ2 = [1 4 5 3 2]
 	for (int j = 0; j < n; j++) {
 		str += a[0][j];
 		str += a[3][j];
@@ -39,7 +39,7 @@ void output(char** a, int const n, string& str) { // считывание букв из матрицы 
 	}
 }
 
-void output_(char** a, int const n, string& str) { // считывание букв из матрицы в новую строку по ключу записи К1
+void output_(char** a, int const n, string& str) { // СЃС‡РёС‚С‹РІР°РЅРёРµ Р±СѓРєРІ РёР· РјР°С‚СЂРёС†С‹ РІ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ РїРѕ РєР»СЋС‡Сѓ Р·Р°РїРёСЃРё Рљ1
 	for (int j = 0; j < n; j++) {
 		str += a[j][0];
 		str += a[j][4];
@@ -49,7 +49,7 @@ void output_(char** a, int const n, string& str) { // считывание букв из матрицы
 	}
 }
 
-void print(char** a, int const n) { // вывод матрицы в консоль
+void print(char** a, int const n) { // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹ РІ РєРѕРЅСЃРѕР»СЊ
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++)
 			cout << a[i][j] << " ";
@@ -60,15 +60,15 @@ void print(char** a, int const n) { // вывод матрицы в консоль
 
 int main() {
 	setlocale(0, "");
-	string str = "ШИФРОВАНИЕ_ПЕРЕСТАНОВКОЙ_";
+	string str = "РЁРР¤Р РћР’РђРќРР•_РџР•Р Р•РЎРўРђРќРћР’РљРћР™_";
 
 	int n = 5;
 	char** arr;
-	init(arr, n);	input(arr, n, str); // инициализация и запись букв в матрицу слева направа по ключу К1
+	init(arr, n);	input(arr, n, str); // РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Рё Р·Р°РїРёСЃСЊ Р±СѓРєРІ РІ РјР°С‚СЂРёС†Сѓ СЃР»РµРІР° РЅР°РїСЂР°РІР° РїРѕ РєР»СЋС‡Сѓ Рљ1
 	print(arr, n);
 
 	string new_str = "";
-	output(arr, n, new_str); // создание новой строки путём считывания букв из матрицы сверху вниз по ключу К2
+	output(arr, n, new_str); // СЃРѕР·РґР°РЅРёРµ РЅРѕРІРѕР№ СЃС‚СЂРѕРєРё РїСѓС‚С‘Рј СЃС‡РёС‚С‹РІР°РЅРёСЏ Р±СѓРєРІ РёР· РјР°С‚СЂРёС†С‹ СЃРІРµСЂС…Сѓ РІРЅРёР· РїРѕ РєР»СЋС‡Сѓ Рљ2
 	cout << new_str;
 	cout << "\n\n";
 
@@ -77,7 +77,7 @@ int main() {
 	//print(arr, n);
 
 	string old_str = "";
-	output_(arr, n, old_str); // декодирование 
+	output_(arr, n, old_str); // РґРµРєРѕРґРёСЂРѕРІР°РЅРёРµ 
 	cout << old_str;
 	cout << '\n';
 
